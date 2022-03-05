@@ -13,17 +13,17 @@ const SingleProduct = ({ prod }) => {
   return (
     <div className="products">
       <Card>
-        <Card.Img variant="top" src={prod.image} alt={prod.image} />
+        <Card.Img variant="top" src={prod.image} alt={prod.name} />
         <Card.Body>
           <Card.Title>{prod.name}</Card.Title>
-          <Card.Subtitle>
-            <span>₹{prod.price.split(".")[0]}</span>
+          <Card.Subtitle style={{ paddingBottom: 10 }}>
+            <span>₹ {prod.price.split(".")[0]}</span>
             {prod.fastDelivery ? (
               <div>Fast Delivery</div>
             ) : (
               <div>4 days delivery</div>
             )}
-            <Rating rating={prod.rating} />
+            <Rating rating={prod.ratings} />
           </Card.Subtitle>
           {cart.some((p) => p.id === prod.id) ? (
             <Button
@@ -35,11 +35,10 @@ const SingleProduct = ({ prod }) => {
                 })
               }
             >
-              Remove from card
+              Remove from Cart
             </Button>
           ) : (
             <Button
-              disabled={!prod.inStack}
               onClick={() =>
                 dispatch({
                   type: "ADD_TO_CART",
@@ -48,7 +47,7 @@ const SingleProduct = ({ prod }) => {
               }
               disabled={!prod.inStock}
             >
-              {!prod.inStack ? "Out of stack" : " Add to card"}
+              {!prod.inStock ? "Out of Stock" : "Add to Cart"}
             </Button>
           )}
         </Card.Body>

@@ -3,7 +3,6 @@
   text-align: center;
   font-size: 30px;
   margin: 10px 0;
-  position: sticky;
 }
 
 .cartitem {
@@ -88,7 +87,7 @@
 
   .productContainer {
     width: 58%;
-   
+    padding: 0;
   }
 
   .search {
@@ -97,6 +96,5 @@
 
   .products {
     width: 100%;
-    
   }
 }

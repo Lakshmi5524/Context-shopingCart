@@ -47,10 +47,11 @@ const Header = () => {
         )}
         <Nav>
           <Dropdown alignRight>
-            <Dropdown.Toggle variant="primary">
+            <Dropdown.Toggle variant="success">
               <FaShoppingCart color="white" fontSize="25px" />
               <Badge>{cart.length}</Badge>
             </Dropdown.Toggle>
+
             <Dropdown.Menu style={{ minWidth: 370 }}>
               {cart.length > 0 ? (
                 <>
@@ -78,7 +79,9 @@ const Header = () => {
                     </span>
                   ))}
                   <Link to="/cart">
-                    <Button style={{ width: "95%" }}>Go To Cart</Button>
+                    <Button style={{ width: "95%", margin: "0 10px" }}>
+                      Go To Cart
+                    </Button>
                   </Link>
                 </>
               ) : (
